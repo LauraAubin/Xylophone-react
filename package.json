@@ -21,13 +21,16 @@
     "url": "https://github.com/LauraAubin/Xylophone/issues"
   },
   "homepage": "https://github.com/LauraAubin/Xylophone#readme",
-  "dependencies": {
-    "react": "^16.8.6"
+  "peerDependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
-    "@babel/preset-react": "^7.0.0"
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
