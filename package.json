@@ -22,5 +22,9 @@
   "homepage": "https://github.com/LauraAubin/Xylophone#readme",
   "dependencies": {
     "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4"
   }
 }
