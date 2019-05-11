@@ -2,9 +2,10 @@
   "name": "xylophone-react",
   "version": "1.0.0",
   "description": "A React based xylophone ready to use out of the box",
-  "main": "index.js",
+  "main": "ES5/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/babel index.js --out-file ES5/index.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,16 @@
     "url": "https://github.com/LauraAubin/Xylophone/issues"
   },
   "homepage": "https://github.com/LauraAubin/Xylophone#readme",
-  "dependencies": {
-    "react": "^16.8.6"
+  "peerDependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-react": "^7.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
