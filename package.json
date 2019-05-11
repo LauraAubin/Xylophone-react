@@ -5,7 +5,7 @@
   "main": "ES5/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel index.js --out-file ES5/index.js"
+    "build": "./node_modules/.bin/babel Xylophone --out-dir ES5"
   },
   "repository": {
     "type": "git",
