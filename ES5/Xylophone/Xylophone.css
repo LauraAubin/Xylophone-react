@@ -1,0 +1,24 @@
+.KeysContainer {
+  display: flex;
+  align-items: center; }
+
+.KeySelection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.KeyArrow {
+  padding-top: 8px; }
+
+.SeparateKeys {
+  margin: 4px; }
+
+.KeyPulse {
+  z-index: 1;
+  border-radius: 8px;
+  animation: pulse 1.5s;
+  box-shadow: 0 0 0 32px rgba(255, 255, 255, 0); }
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 grey; } }

@@ -1,0 +1,34 @@
+@import '../GlobalStyles/colors.scss';
+@import '../GlobalStyles/spacing.scss';
+
+.KeysContainer {
+  display: flex;
+  align-items: center;
+}
+
+.KeySelection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.KeyArrow {
+  padding-top: spacing(tight);
+}
+
+.SeparateKeys {
+  margin: spacing(extraTight);
+}
+
+.KeyPulse {
+  z-index: 1;
+  border-radius: spacing(tight);
+  animation: pulse 1.5s;
+  box-shadow: 0 0 0 spacing(extraLoose) rgba(white, 0);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 grey;
+  }
+}
