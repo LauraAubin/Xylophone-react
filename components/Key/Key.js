@@ -1,8 +1,10 @@
 import * as React from 'react';
 
+import Screw from '../Screw';
+
 import './Key.scss';
 
-export default class Xylophone extends React.Component {
+export default class Key extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -12,8 +14,8 @@ export default class Xylophone extends React.Component {
 
     return (
       <div className={`Key-${identifier}`}>
-        {/* <Screw />
-        <Screw /> */}
+        <Screw />
+        <Screw />
       </div>
     );
   }
