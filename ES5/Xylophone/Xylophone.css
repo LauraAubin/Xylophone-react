@@ -1,0 +1,11 @@
+.KeysContainer {
+  display: flex;
+  align-items: center; }
+
+.Key {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.SeparateKeys {
+  margin: 4px; }
