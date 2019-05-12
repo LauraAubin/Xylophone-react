@@ -14,13 +14,12 @@ export default class Xylophone extends React.Component {
   }
 
   renderKeys() {
-    const { numberOfKeys = 8 } = this.props;
+    const { numberOfKeys = 8, colors } = this.props;
 
     const keys = [];
     for (let i = 1; i < numberOfKeys + 1; i++) {
-
-      const maxAmountOfKeys = i >= 13;
-      if (maxAmountOfKeys) {
+      const preventExtraKeys = i >= 13;
+      if (!colors && preventExtraKeys) {
         break;
       }
 
@@ -30,7 +29,7 @@ export default class Xylophone extends React.Component {
             className='SeparateKeys'
             // onClick={this.pressedKey(i)}
           >
-            <Key identifier={i} />
+            <Key identifier={i} colors={colors} numberOfKeys={numberOfKeys} />
           </div>
         </div>
       );

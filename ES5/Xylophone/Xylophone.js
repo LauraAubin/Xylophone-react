@@ -54,14 +54,16 @@ function (_React$Component) {
   }, {
     key: "renderKeys",
     value: function renderKeys() {
-      var _this$props$numberOfK = this.props.numberOfKeys,
-          numberOfKeys = _this$props$numberOfK === void 0 ? 8 : _this$props$numberOfK;
+      var _this$props = this.props,
+          _this$props$numberOfK = _this$props.numberOfKeys,
+          numberOfKeys = _this$props$numberOfK === void 0 ? 8 : _this$props$numberOfK,
+          colors = _this$props.colors;
       var keys = [];
 
       for (var i = 1; i < numberOfKeys + 1; i++) {
-        var maxAmountOfKeys = i >= 13;
+        var preventExtraKeys = i >= 13;
 
-        if (maxAmountOfKeys) {
+        if (!colors && preventExtraKeys) {
           break;
         }
 
@@ -72,7 +74,9 @@ function (_React$Component) {
           className: "SeparateKeys" // onClick={this.pressedKey(i)}
 
         }, React.createElement(_Key["default"], {
-          identifier: i
+          identifier: i,
+          colors: colors,
+          numberOfKeys: numberOfKeys
         }))));
       }
 
