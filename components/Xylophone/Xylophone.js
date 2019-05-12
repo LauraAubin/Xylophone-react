@@ -18,6 +18,12 @@ export default class Xylophone extends React.Component {
 
     const keys = [];
     for (let i = 1; i < numberOfKeys + 1; i++) {
+
+      const maxAmountOfKeys = i >= 13;
+      if (maxAmountOfKeys) {
+        break;
+      }
+
       keys.push(
         <div className='Key' key={`Key-${i}`}>
           <div

@@ -59,6 +59,12 @@ function (_React$Component) {
       var keys = [];
 
       for (var i = 1; i < numberOfKeys + 1; i++) {
+        var maxAmountOfKeys = i >= 13;
+
+        if (maxAmountOfKeys) {
+          break;
+        }
+
         keys.push(React.createElement("div", {
           className: "Key",
           key: "Key-".concat(i)
