@@ -7,11 +7,7 @@ exports["default"] = void 0;
 
 var React = _interopRequireWildcard(require("react"));
 
-var _Key = _interopRequireDefault(require("../Key"));
-
-require("./Xylophone.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+require("./Screw.css");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
 
@@ -33,48 +29,27 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var Xylophone =
+var Screw =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Xylophone, _React$Component);
+  _inherits(Screw, _React$Component);
 
-  function Xylophone(props) {
-    _classCallCheck(this, Xylophone);
+  function Screw() {
+    _classCallCheck(this, Screw);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Xylophone).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Screw).apply(this, arguments));
   }
 
-  _createClass(Xylophone, [{
+  _createClass(Screw, [{
     key: "render",
     value: function render() {
       return React.createElement("div", {
-        className: "KeysContainer"
-      }, this.renderKeys());
-    }
-  }, {
-    key: "renderKeys",
-    value: function renderKeys() {
-      var _this$props$numberOfK = this.props.numberOfKeys,
-          numberOfKeys = _this$props$numberOfK === void 0 ? 8 : _this$props$numberOfK;
-      var keys = [];
-
-      for (var i = 1; i < numberOfKeys + 1; i++) {
-        keys.push(React.createElement("div", {
-          className: "Key",
-          key: "Key-".concat(i)
-        }, React.createElement("div", {
-          className: "SeparateKeys" // onClick={this.pressedKey(i)}
-
-        }, React.createElement(_Key["default"], {
-          identifier: i
-        }))));
-      }
-
-      return keys;
+        className: "Screw"
+      });
     }
   }]);
 
-  return Xylophone;
+  return Screw;
 }(React.Component);
 
-exports["default"] = Xylophone;
+exports["default"] = Screw;

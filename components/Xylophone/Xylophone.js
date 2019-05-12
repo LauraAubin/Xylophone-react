@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import Key from '../Key';
+
 import './Xylophone.scss';
 
 export default class Xylophone extends React.Component {
@@ -22,8 +24,7 @@ export default class Xylophone extends React.Component {
             className='SeparateKeys'
             // onClick={this.pressedKey(i)}
           >
-            {i}
-            {/* <Key identifier={i} key={i} /> */}
+            <Key identifier={i} />
           </div>
         </div>
       );
