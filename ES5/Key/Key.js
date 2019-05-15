@@ -80,7 +80,8 @@ function (_React$Component) {
       var colors = this.props.colors;
       var padding = 8;
       var defaultStyles = {
-        width: '50px',
+        // width: '50px',
+        width: '100%',
         display: 'flex',
         padding: "".concat(padding, "px 0"),
         flexDirection: 'column',

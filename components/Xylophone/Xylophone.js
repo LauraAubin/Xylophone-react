@@ -25,18 +25,13 @@ export default class Xylophone extends React.Component {
 
       keys.push(
         <div className='Key' key={`Key-${i}`}>
-          <div
-            className='SeparateKeys'
-            // onClick={this.pressedKey(i)}
-          >
-            <Key
-              identifier={i}
-              colors={colors}
-              shape={shape}
-              height={height}
-              numberOfKeys={numberOfKeys}
-            />
-          </div>
+          <Key
+            identifier={i}
+            colors={colors}
+            shape={shape}
+            height={height}
+            numberOfKeys={numberOfKeys}
+          />
         </div>
       );
     }

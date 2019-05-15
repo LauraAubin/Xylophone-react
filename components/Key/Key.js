@@ -36,7 +36,7 @@ export default class Key extends React.Component {
     const padding = 8;
 
     const defaultStyles = {
-      width: '50px',
+      width: '100%',
       display: 'flex',
       padding: `${padding}px 0`,
       flexDirection: 'column',

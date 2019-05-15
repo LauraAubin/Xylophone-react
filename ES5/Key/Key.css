@@ -1,6 +1,6 @@
 .Key-1 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 
 .Key-2 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +28,7 @@
 
 .Key-3 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +42,7 @@
 
 .Key-4 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +56,7 @@
 
 .Key-5 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -70,7 +70,7 @@
 
 .Key-6 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -84,7 +84,7 @@
 
 .Key-7 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -98,7 +98,7 @@
 
 .Key-8 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -112,7 +112,7 @@
 
 .Key-9 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -126,7 +126,7 @@
 
 .Key-10 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -140,7 +140,7 @@
 
 .Key-11 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -154,7 +154,7 @@
 
 .Key-12 {
   display: flex;
-  width: 50px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

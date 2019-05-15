@@ -72,16 +72,13 @@ function (_React$Component) {
         keys.push(React.createElement("div", {
           className: "Key",
           key: "Key-".concat(i)
-        }, React.createElement("div", {
-          className: "SeparateKeys" // onClick={this.pressedKey(i)}
-
         }, React.createElement(_Key["default"], {
           identifier: i,
           colors: colors,
           shape: shape,
           height: height,
           numberOfKeys: numberOfKeys
-        }))));
+        })));
       }
 
       return keys;

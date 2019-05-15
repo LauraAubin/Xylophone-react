@@ -4,8 +4,10 @@
 
 .Key {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  margin: 4px; }
 
 .SeparateKeys {
   margin: 4px; }
