@@ -14,7 +14,7 @@ export default class Xylophone extends React.Component {
   }
 
   renderKeys() {
-    const { numberOfKeys = 8, colors } = this.props;
+    const { numberOfKeys = 8, colors, shape, height } = this.props;
 
     const keys = [];
     for (let i = 1; i < numberOfKeys + 1; i++) {
@@ -29,7 +29,13 @@ export default class Xylophone extends React.Component {
             className='SeparateKeys'
             // onClick={this.pressedKey(i)}
           >
-            <Key identifier={i} colors={colors} numberOfKeys={numberOfKeys} />
+            <Key
+              identifier={i}
+              colors={colors}
+              shape={shape}
+              height={height}
+              numberOfKeys={numberOfKeys}
+            />
           </div>
         </div>
       );

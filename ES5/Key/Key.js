@@ -37,6 +37,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+var DEFAULT_HEIGHT = 200;
+var MODIFIER = 10;
+
 var Key =
 /*#__PURE__*/
 function (_React$Component) {
@@ -60,10 +63,12 @@ function (_React$Component) {
       var _this$props = this.props,
           _this$props$identifie = _this$props.identifier,
           identifier = _this$props$identifie === void 0 ? 1 : _this$props$identifie,
-          colors = _this$props.colors;
+          colors = _this$props.colors,
+          shape = _this$props.shape,
+          height = _this$props.height;
       return React.createElement("div", {
         className: "Key-".concat(identifier),
-        style: colors && this.createStyles(),
+        style: (colors || shape || height) && this.createStyles(),
         onMouseDown: colors && this.pressKey.bind(this),
         onMouseUp: colors && this.releaseKey.bind(this),
         onMouseLeave: colors && this.leaveKey.bind(this)
@@ -72,20 +77,23 @@ function (_React$Component) {
   }, {
     key: "createStyles",
     value: function createStyles() {
+      var colors = this.props.colors;
+      var padding = 8;
       var defaultStyles = {
         width: '50px',
         display: 'flex',
-        padding: '8px 0',
+        padding: "".concat(padding, "px 0"),
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
         borderRadius: '8px'
       };
+      var extraHeight = padding * 2;
 
       var style = _objectSpread({
-        backgroundColor: this.setColor(),
-        boxShadow: "3px 3px ".concat(this.determineElementToUse('background')),
-        height: "".concat(this.setHeight(), "px")
+        backgroundColor: colors && this.setColor(),
+        boxShadow: "3px 3px ".concat(colors && this.determineElementToUse('background')),
+        height: "".concat(this.setHeight() - extraHeight, "px")
       }, defaultStyles);
 
       return style;
@@ -100,18 +108,46 @@ function (_React$Component) {
     key: "setHeight",
     value: function setHeight() {
       var _this$props2 = this.props,
-          numberOfKeys = _this$props2.numberOfKeys,
-          identifier = _this$props2.identifier;
+          shape = _this$props2.shape,
+          _this$props2$height = _this$props2.height,
+          height = _this$props2$height === void 0 ? DEFAULT_HEIGHT : _this$props2$height;
+      return shape == 'flat' ? height : this.calculateHeightBasedOnVaryingShape();
+    }
+  }, {
+    key: "calculateHeightBasedOnVaryingShape",
+    value: function calculateHeightBasedOnVaryingShape() {
+      var _this$props$shape = this.props.shape,
+          shape = _this$props$shape === void 0 ? 'shrinking' : _this$props$shape;
 
-      if (numberOfKeys >= 13) {
-        var decreasingValue = 10;
-        var buffer = 100;
-        var largestKey = numberOfKeys * decreasingValue;
-        return largestKey - decreasingValue * identifier + buffer;
-      } else {
-        // If we have a small amount of keys, we should make sure that the xylophone isn't small itself
-        return 250 - identifier * 10;
+      if (shape == 'shrinking') {
+        return this.calculateShrinkingHeight();
       }
+
+      if (shape == 'growing') {
+        return this.calculateGrowingHeight();
+      }
+    }
+  }, {
+    key: "calculateGrowingHeight",
+    value: function calculateGrowingHeight() {
+      var _this$props3 = this.props,
+          _this$props3$height = _this$props3.height,
+          height = _this$props3$height === void 0 ? DEFAULT_HEIGHT : _this$props3$height,
+          identifier = _this$props3.identifier;
+      var adjustingHeight = MODIFIER * (identifier - 1);
+      return height + adjustingHeight;
+    }
+  }, {
+    key: "calculateShrinkingHeight",
+    value: function calculateShrinkingHeight() {
+      var _this$props4 = this.props,
+          _this$props4$height = _this$props4.height,
+          height = _this$props4$height === void 0 ? DEFAULT_HEIGHT : _this$props4$height,
+          identifier = _this$props4.identifier,
+          numberOfKeys = _this$props4.numberOfKeys;
+      var largestKey = height + MODIFIER * numberOfKeys;
+      var adjustingHeight = MODIFIER * identifier;
+      return largestKey - adjustingHeight;
     }
   }, {
     key: "determineElementToUse",
@@ -128,9 +164,9 @@ function (_React$Component) {
   }, {
     key: "currentIdentifierElement",
     value: function currentIdentifierElement() {
-      var _this$props3 = this.props,
-          identifier = _this$props3.identifier,
-          colors = _this$props3.colors;
+      var _this$props5 = this.props,
+          identifier = _this$props5.identifier,
+          colors = _this$props5.colors;
       return colors[identifier - 1];
     }
   }, {

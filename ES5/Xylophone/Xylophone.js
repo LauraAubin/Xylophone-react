@@ -57,7 +57,9 @@ function (_React$Component) {
       var _this$props = this.props,
           _this$props$numberOfK = _this$props.numberOfKeys,
           numberOfKeys = _this$props$numberOfK === void 0 ? 8 : _this$props$numberOfK,
-          colors = _this$props.colors;
+          colors = _this$props.colors,
+          shape = _this$props.shape,
+          height = _this$props.height;
       var keys = [];
 
       for (var i = 1; i < numberOfKeys + 1; i++) {
@@ -76,6 +78,8 @@ function (_React$Component) {
         }, React.createElement(_Key["default"], {
           identifier: i,
           colors: colors,
+          shape: shape,
+          height: height,
           numberOfKeys: numberOfKeys
         }))));
       }

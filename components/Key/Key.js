@@ -4,6 +4,9 @@ import Screw from '../Screw';
 
 import './Key.scss';
 
+const DEFAULT_HEIGHT = 200;
+const MODIFIER = 10;
+
 export default class Key extends React.Component {
   constructor(props) {
     super(props);
@@ -11,12 +14,12 @@ export default class Key extends React.Component {
   }
 
   render() {
-    const { identifier = 1, colors } = this.props;
+    const { identifier = 1, colors, shape, height } = this.props;
 
     return (
       <div
         className={`Key-${identifier}`}
-        style={colors && this.createStyles()}
+        style={(colors || shape || height) && this.createStyles()}
         onMouseDown={colors && this.pressKey.bind(this)}
         onMouseUp={colors && this.releaseKey.bind(this)}
         onMouseLeave={colors && this.leaveKey.bind(this)}
@@ -28,20 +31,27 @@ export default class Key extends React.Component {
   }
 
   createStyles() {
+    const { colors } = this.props;
+
+    const padding = 8;
+
     const defaultStyles = {
       width: '50px',
       display: 'flex',
-      padding: '8px 0',
+      padding: `${padding}px 0`,
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'space-between',
       borderRadius: '8px'
     };
 
+    const extraHeight = padding * 2;
+
     const style = {
-      backgroundColor: this.setColor(),
-      boxShadow: `3px 3px ${this.determineElementToUse('background')}`,
-      height: `${this.setHeight()}px`,
+      backgroundColor: colors && this.setColor(),
+      boxShadow: `3px 3px ${colors &&
+        this.determineElementToUse('background')}`,
+      height: `${this.setHeight() - extraHeight}px`,
       ...defaultStyles
     };
 
@@ -57,18 +67,37 @@ export default class Key extends React.Component {
   }
 
   setHeight() {
-    const { numberOfKeys, identifier } = this.props;
+    const { shape, height = DEFAULT_HEIGHT } = this.props;
 
-    if (numberOfKeys >= 13) {
-      const decreasingValue = 10;
-      const buffer = 100;
+    return shape == 'flat' ? height : this.calculateHeightBasedOnVaryingShape();
+  }
 
-      const largestKey = numberOfKeys * decreasingValue;
-      return largestKey - decreasingValue * identifier + buffer;
-    } else {
-      // If we have a small amount of keys, we should make sure that the xylophone isn't small itself
-      return 250 - (identifier * 10);
+  calculateHeightBasedOnVaryingShape() {
+    const { shape = 'shrinking' } = this.props;
+
+    if (shape == 'shrinking') {
+      return this.calculateShrinkingHeight();
     }
+
+    if (shape == 'growing') {
+      return this.calculateGrowingHeight();
+    }
+  }
+
+  calculateGrowingHeight() {
+    const { height = DEFAULT_HEIGHT, identifier } = this.props;
+
+    const adjustingHeight = MODIFIER * (identifier - 1);
+    return height + adjustingHeight;
+  }
+
+  calculateShrinkingHeight() {
+    const { height = DEFAULT_HEIGHT, identifier, numberOfKeys } = this.props;
+
+    const largestKey = height + MODIFIER * numberOfKeys;
+    const adjustingHeight = MODIFIER * identifier;
+
+    return largestKey - adjustingHeight;
   }
 
   determineElementToUse(property) {
