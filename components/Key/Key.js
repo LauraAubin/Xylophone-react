@@ -14,12 +14,12 @@ export default class Key extends React.Component {
   }
 
   render() {
-    const { identifier = 1, colors, shape, height } = this.props;
+    const { identifier = 1, colors, shape, height, width } = this.props;
 
     return (
       <div
         className={`Key-${identifier}`}
-        style={(colors || shape || height) && this.createStyles()}
+        style={(colors || shape || height || width) && this.createStyles()}
         onMouseDown={colors && this.pressKey.bind(this)}
         onMouseUp={colors && this.releaseKey.bind(this)}
         onMouseLeave={colors && this.leaveKey.bind(this)}
@@ -36,7 +36,6 @@ export default class Key extends React.Component {
     const padding = 8;
 
     const defaultStyles = {
-      width: '100%',
       display: 'flex',
       padding: `${padding}px 0`,
       flexDirection: 'column',
@@ -52,6 +51,7 @@ export default class Key extends React.Component {
       boxShadow: `3px 3px ${colors &&
         this.determineElementToUse('background')}`,
       height: `${this.setHeight() - extraHeight}px`,
+      width: `${this.setWidth()}`,
       ...defaultStyles
     };
 
@@ -70,6 +70,12 @@ export default class Key extends React.Component {
     const { shape, height = DEFAULT_HEIGHT } = this.props;
 
     return shape == 'flat' ? height : this.calculateHeightBasedOnVaryingShape();
+  }
+
+  setWidth() {
+    const { width } = this.props;
+
+    return width ? `${width}px` : '100%';
   }
 
   calculateHeightBasedOnVaryingShape() {

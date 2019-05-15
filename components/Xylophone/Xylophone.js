@@ -14,7 +14,9 @@ export default class Xylophone extends React.Component {
   }
 
   renderKeys() {
-    const { numberOfKeys = 8, colors, shape, height } = this.props;
+    const { numberOfKeys = 8, colors, shape, height, width } = this.props;
+
+    const growKeys = width ? undefined : { flexGrow: 1 };
 
     const keys = [];
     for (let i = 1; i < numberOfKeys + 1; i++) {
@@ -24,12 +26,13 @@ export default class Xylophone extends React.Component {
       }
 
       keys.push(
-        <div className='Key' key={`Key-${i}`}>
+        <div className='Key' style={growKeys} key={`Key-${i}`}>
           <Key
             identifier={i}
             colors={colors}
             shape={shape}
             height={height}
+            width={width}
             numberOfKeys={numberOfKeys}
           />
         </div>

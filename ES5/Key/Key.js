@@ -65,10 +65,11 @@ function (_React$Component) {
           identifier = _this$props$identifie === void 0 ? 1 : _this$props$identifie,
           colors = _this$props.colors,
           shape = _this$props.shape,
-          height = _this$props.height;
+          height = _this$props.height,
+          width = _this$props.width;
       return React.createElement("div", {
         className: "Key-".concat(identifier),
-        style: (colors || shape || height) && this.createStyles(),
+        style: (colors || shape || height || width) && this.createStyles(),
         onMouseDown: colors && this.pressKey.bind(this),
         onMouseUp: colors && this.releaseKey.bind(this),
         onMouseLeave: colors && this.leaveKey.bind(this)
@@ -80,8 +81,6 @@ function (_React$Component) {
       var colors = this.props.colors;
       var padding = 8;
       var defaultStyles = {
-        // width: '50px',
-        width: '100%',
         display: 'flex',
         padding: "".concat(padding, "px 0"),
         flexDirection: 'column',
@@ -94,7 +93,8 @@ function (_React$Component) {
       var style = _objectSpread({
         backgroundColor: colors && this.setColor(),
         boxShadow: "3px 3px ".concat(colors && this.determineElementToUse('background')),
-        height: "".concat(this.setHeight() - extraHeight, "px")
+        height: "".concat(this.setHeight() - extraHeight, "px"),
+        width: "".concat(this.setWidth())
       }, defaultStyles);
 
       return style;
@@ -113,6 +113,12 @@ function (_React$Component) {
           _this$props2$height = _this$props2.height,
           height = _this$props2$height === void 0 ? DEFAULT_HEIGHT : _this$props2$height;
       return shape == 'flat' ? height : this.calculateHeightBasedOnVaryingShape();
+    }
+  }, {
+    key: "setWidth",
+    value: function setWidth() {
+      var width = this.props.width;
+      return width ? "".concat(width, "px") : '100%';
     }
   }, {
     key: "calculateHeightBasedOnVaryingShape",
