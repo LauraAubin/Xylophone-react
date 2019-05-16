@@ -26,7 +26,12 @@ export default class Xylophone extends React.Component {
       }
 
       keys.push(
-        <div className='Key' style={growKeys} key={`Key-${i}`}>
+        <div
+          className='Key'
+          style={growKeys}
+          onClick={this.pressedKey.bind(this, i)}
+          key={`Key-${i}`}
+        >
           <Key
             identifier={i}
             colors={colors}
@@ -40,5 +45,11 @@ export default class Xylophone extends React.Component {
     }
 
     return keys;
+  }
+
+  pressedKey(key) {
+    const {pressedKey} = this.props;
+
+    pressedKey(key);
   }
 }
