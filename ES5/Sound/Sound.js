@@ -41,7 +41,7 @@ function () {
       this.setup();
       this.oscillator.frequency.value = value;
       this.gainNode.gain.setValueAtTime(0, this.context.currentTime);
-      this.gainNode.gain.linearRampToValueAtTime(1, this.context.currentTime + 0.01);
+      this.gainNode.gain.linearRampToValueAtTime(0.2, this.context.currentTime + 0.01);
       this.oscillator.start(this.context.currentTime);
       this.stop(this.context.currentTime);
     }
