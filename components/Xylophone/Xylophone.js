@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Key from '../Key';
+import playSound from '../Sound/Sound';
 
 import './Xylophone.scss';
 
@@ -21,10 +22,7 @@ export default class Xylophone extends React.Component {
     const keys = [];
     for (let i = 1; i < numberOfKeys + 1; i++) {
       const preventExtraKeys = i >= 13;
-      if (preventExtraKeys) {
-        // TODO: change condition to (!color && preventExtraKeys)
-        // This will make the number of keys limitless given that a color scheme is specified
-        // Issue tracker: https://github.com/LauraAubin/Xylophone-react/issues/8
+      if (!colors && preventExtraKeys) {
         break;
       }
 
@@ -51,8 +49,21 @@ export default class Xylophone extends React.Component {
   }
 
   pressedKey(key) {
-    const {pressedKey} = this.props;
+    const { pressedKey } = this.props;
 
+    this.determinePressedNote(key, 1);
     pressedKey(key);
+  }
+
+  // Assumption: the xylophone always starts at C
+  determinePressedNote(pressedKey, octave) {
+    const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+    const numberOfNotes = notes.length;
+
+    if (pressedKey <= numberOfNotes) {
+      playSound(notes[pressedKey - 1], octave);
+    } else {
+      this.determinePressedNote(pressedKey - numberOfNotes, octave + 1);
+    }
   }
 }

@@ -56,10 +56,14 @@ function () {
   return Sound;
 }();
 
-function playSound(note) {
-  var octave = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-  var sound = new Sound(context);
-  var frequency = _frequencies["default"][note] * octave;
+function playSound(note, octave) {
+  var sound = new Sound(context); // Example:
+  // ((110 * 2) * 2 * 2)
+  // 2 * 2 * 2 = 2^3 = 8
+  // Therefore 110 * 8
+
+  var octaveInterval = Math.pow(2, octave);
+  var frequency = _frequencies["default"][note] * octaveInterval;
   sound.play(frequency);
   sound.stop();
 }

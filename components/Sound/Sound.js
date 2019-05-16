@@ -44,9 +44,15 @@ class Sound {
   }
 }
 
-export default function playSound(note, octave = 1) {
+export default function playSound(note, octave) {
   const sound = new Sound(context);
-  const frequency = scale[note] * octave;
+
+  // Example:
+  // ((110 * 2) * 2 * 2)
+  // 2 * 2 * 2 = 2^3 = 8
+  // Therefore 110 * 8
+  const octaveInterval = Math.pow(2, octave);
+  const frequency = scale[note] * octaveInterval;
 
   sound.play(frequency);
   sound.stop();

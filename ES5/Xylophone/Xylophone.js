@@ -9,6 +9,8 @@ var React = _interopRequireWildcard(require("react"));
 
 var _Key = _interopRequireDefault(require("../Key"));
 
+var _Sound = _interopRequireDefault(require("../Sound/Sound"));
+
 require("./Xylophone.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -69,7 +71,7 @@ function (_React$Component) {
       for (var i = 1; i < numberOfKeys + 1; i++) {
         var preventExtraKeys = i >= 13;
 
-        if (preventExtraKeys) {
+        if (!colors && preventExtraKeys) {
           // TODO: change condition to (!color && preventExtraKeys)
           // This will make the number of keys limitless given that a color scheme is specified
           // Issue tracker: https://github.com/LauraAubin/Xylophone-react/issues/8
@@ -97,7 +99,21 @@ function (_React$Component) {
     key: "pressedKey",
     value: function pressedKey(key) {
       var pressedKey = this.props.pressedKey;
+      this.determinePressedNote(key, 1);
       pressedKey(key);
+    } // Assumption: the xylophone always starts at C
+
+  }, {
+    key: "determinePressedNote",
+    value: function determinePressedNote(pressedKey, octave) {
+      var notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+      var numberOfNotes = notes.length;
+
+      if (pressedKey <= numberOfNotes) {
+        (0, _Sound["default"])(notes[pressedKey - 1], octave);
+      } else {
+        this.determinePressedNote(pressedKey - numberOfNotes, octave + 1);
+      }
     }
   }]);
 
