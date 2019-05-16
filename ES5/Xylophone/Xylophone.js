@@ -72,9 +72,6 @@ function (_React$Component) {
         var preventExtraKeys = i >= 13;
 
         if (!colors && preventExtraKeys) {
-          // TODO: change condition to (!color && preventExtraKeys)
-          // This will make the number of keys limitless given that a color scheme is specified
-          // Issue tracker: https://github.com/LauraAubin/Xylophone-react/issues/8
           break;
         }
 
@@ -98,8 +95,12 @@ function (_React$Component) {
   }, {
     key: "pressedKey",
     value: function pressedKey(key) {
-      var pressedKey = this.props.pressedKey;
-      this.determinePressedNote(key, 1);
+      var _this$props2 = this.props,
+          pressedKey = _this$props2.pressedKey,
+          _this$props2$starting = _this$props2.startingOctave,
+          startingOctave = _this$props2$starting === void 0 ? 2 : _this$props2$starting;
+      var octave = startingOctave > 0 ? startingOctave : 1;
+      this.determinePressedNote(key, octave);
       pressedKey(key);
     } // Assumption: the xylophone always starts at C
 

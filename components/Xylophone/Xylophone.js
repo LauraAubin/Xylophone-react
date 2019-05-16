@@ -49,9 +49,11 @@ export default class Xylophone extends React.Component {
   }
 
   pressedKey(key) {
-    const { pressedKey } = this.props;
+    const { pressedKey, startingOctave = 2 } = this.props;
 
-    this.determinePressedNote(key, 1);
+    const octave = startingOctave > 0 ? startingOctave : 1;
+
+    this.determinePressedNote(key, octave);
     pressedKey(key);
   }
 
