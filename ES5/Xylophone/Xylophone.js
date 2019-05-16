@@ -69,7 +69,10 @@ function (_React$Component) {
       for (var i = 1; i < numberOfKeys + 1; i++) {
         var preventExtraKeys = i >= 13;
 
-        if (!colors && preventExtraKeys) {
+        if (preventExtraKeys) {
+          // TODO: change condition to (!color && preventExtraKeys)
+          // This will make the number of keys limitless given that a color scheme is specified
+          // Issue tracker: https://github.com/LauraAubin/Xylophone-react/issues/8
           break;
         }
 
