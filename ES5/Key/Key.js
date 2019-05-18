@@ -70,9 +70,9 @@ function (_React$Component) {
       return React.createElement("div", {
         className: "Key-".concat(identifier),
         style: (colors || shape || height || width) && this.createStyles(),
-        onMouseDown: colors && this.pressKey.bind(this),
-        onMouseUp: colors && this.releaseKey.bind(this),
-        onMouseLeave: colors && this.leaveKey.bind(this)
+        onMouseDown: this.pressKey.bind(this),
+        onMouseUp: this.releaseKey.bind(this),
+        onMouseLeave: this.leaveKey.bind(this)
       }, React.createElement(_Screw["default"], null), React.createElement(_Screw["default"], null));
     }
   }, {

@@ -30,7 +30,7 @@ export default class Xylophone extends React.Component {
         <div
           className='Key'
           style={growKeys}
-          onClick={this.pressedKey.bind(this, i)}
+          onMouseDown={this.pressedKey.bind(this, i)}
           key={`Key-${i}`}
         >
           <Key

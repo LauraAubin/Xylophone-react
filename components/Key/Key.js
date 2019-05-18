@@ -20,9 +20,9 @@ export default class Key extends React.Component {
       <div
         className={`Key-${identifier}`}
         style={(colors || shape || height || width) && this.createStyles()}
-        onMouseDown={colors && this.pressKey.bind(this)}
-        onMouseUp={colors && this.releaseKey.bind(this)}
-        onMouseLeave={colors && this.leaveKey.bind(this)}
+        onMouseDown={this.pressKey.bind(this)}
+        onMouseUp={this.releaseKey.bind(this)}
+        onMouseLeave={this.leaveKey.bind(this)}
       >
         <Screw />
         <Screw />

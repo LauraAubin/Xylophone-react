@@ -78,7 +78,7 @@ function (_React$Component) {
         keys.push(React.createElement("div", {
           className: "Key",
           style: growKeys,
-          onClick: this.pressedKey.bind(this, i),
+          onMouseDown: this.pressedKey.bind(this, i),
           key: "Key-".concat(i)
         }, React.createElement(_Key["default"], {
           identifier: i,
