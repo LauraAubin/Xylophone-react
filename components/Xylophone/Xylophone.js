@@ -54,7 +54,7 @@ export default class Xylophone extends React.Component {
     const octave = startingOctave > 0 ? startingOctave : 1;
 
     this.determinePressedNote(key, octave);
-    pressedKey(key);
+    pressedKey && pressedKey(key);
   }
 
   // Assumption: the xylophone always starts at C

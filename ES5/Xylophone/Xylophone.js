@@ -101,7 +101,7 @@ function (_React$Component) {
           startingOctave = _this$props2$starting === void 0 ? 2 : _this$props2$starting;
       var octave = startingOctave > 0 ? startingOctave : 1;
       this.determinePressedNote(key, octave);
-      pressedKey(key);
+      pressedKey && pressedKey(key);
     } // Assumption: the xylophone always starts at C
 
   }, {
