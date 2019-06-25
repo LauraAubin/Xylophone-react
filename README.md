@@ -90,3 +90,7 @@ All changes should be made within the `./components` folder.
 After making changes, run `yarn build`. This command will compile the files to ES5, convert Sass to CSS, and update any Sass imports.
 
 To test that your changes worked, install this project into a React app using `npm install path/to/this/folder` and render the `<Xylophone />` component.
+
+## Feedback
+
+Feel free to open an issue with feedback or a feature request. All are welcome 🤗!
