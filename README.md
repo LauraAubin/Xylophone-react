@@ -1,7 +1,7 @@
 # Xylophone
 > A React based xylophone ready to use out of the box
 
-<img src="https://github.com/LauraAubin/Xylophone-react/blob/master/Screenshot/Xylophone%20-%2012%20keys.png" />
+<img src="https://github.com/LauraAubin/Xylophone-react/raw/master/Screenshot/Xylophone%20-%2012%20keys.png" />
 
 ## Install
 
