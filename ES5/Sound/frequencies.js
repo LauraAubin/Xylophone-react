@@ -13,5 +13,4 @@ var scale = {
   "A": 220,
   "B": 247
 };
-var _default = scale;
-exports["default"] = _default;
+var _default = exports["default"] = scale;

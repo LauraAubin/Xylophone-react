@@ -3,122 +3,66 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-
-var React = _interopRequireWildcard(require("react"));
-
-var _Key = _interopRequireDefault(require("../Key"));
-
-var _Sound = _interopRequireDefault(require("../Sound/Sound"));
-
-require("./Xylophone.css");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj["default"] = obj; return newObj; } }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Xylophone =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Xylophone, _React$Component);
-
-  function Xylophone(props) {
-    _classCallCheck(this, Xylophone);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Xylophone).call(this, props));
-  }
-
-  _createClass(Xylophone, [{
-    key: "render",
-    value: function render() {
-      return React.createElement("div", {
-        className: "KeysContainer"
-      }, this.renderKeys());
-    }
-  }, {
-    key: "renderKeys",
-    value: function renderKeys() {
-      var _this$props = this.props,
-          _this$props$numberOfK = _this$props.numberOfKeys,
-          numberOfKeys = _this$props$numberOfK === void 0 ? 8 : _this$props$numberOfK,
-          colors = _this$props.colors,
-          shape = _this$props.shape,
-          height = _this$props.height,
-          width = _this$props.width;
-      var growKeys = width ? undefined : {
-        flexGrow: 1
-      };
-      var keys = [];
-
-      for (var i = 1; i < numberOfKeys + 1; i++) {
-        var preventExtraKeys = i >= 13;
-
-        if (!colors && preventExtraKeys) {
-          break;
-        }
-
-        keys.push(React.createElement("div", {
-          className: "Key",
-          style: growKeys,
-          onMouseDown: this.pressedKey.bind(this, i),
-          key: "Key-".concat(i)
-        }, React.createElement(_Key["default"], {
-          identifier: i,
-          colors: colors,
-          shape: shape,
-          height: height,
-          width: width,
-          numberOfKeys: numberOfKeys
-        })));
-      }
-
-      return keys;
-    }
-  }, {
-    key: "pressedKey",
-    value: function pressedKey(key) {
-      var _this$props2 = this.props,
-          pressedKey = _this$props2.pressedKey,
-          _this$props2$starting = _this$props2.startingOctave,
-          startingOctave = _this$props2$starting === void 0 ? 2 : _this$props2$starting;
-      var octave = startingOctave > 0 ? startingOctave : 1;
-      this.determinePressedNote(key, octave);
-      pressedKey && pressedKey(key);
-    } // Assumption: the xylophone always starts at C
-
-  }, {
-    key: "determinePressedNote",
-    value: function determinePressedNote(pressedKey, octave) {
-      var notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-      var numberOfNotes = notes.length;
-
-      if (pressedKey <= numberOfNotes) {
-        (0, _Sound["default"])(notes[pressedKey - 1], octave);
-      } else {
-        this.determinePressedNote(pressedKey - numberOfNotes, octave + 1);
-      }
-    }
-  }]);
-
-  return Xylophone;
-}(React.Component);
-
 exports["default"] = Xylophone;
+var _react = _interopRequireDefault(require("react"));
+var _Key = _interopRequireDefault(require("../Key/Key"));
+var _Sound = _interopRequireDefault(require("../Sound/Sound"));
+require("./Xylophone.scss");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var MAX_KEYS = 13;
+function Xylophone(_ref) {
+  var _ref$keyCount = _ref.keyCount,
+    keyCount = _ref$keyCount === void 0 ? 8 : _ref$keyCount,
+    _ref$startingOctave = _ref.startingOctave,
+    startingOctave = _ref$startingOctave === void 0 ? 2 : _ref$startingOctave,
+    colors = _ref.colors,
+    shape = _ref.shape,
+    height = _ref.height,
+    width = _ref.width,
+    pressedKey = _ref.pressedKey;
+  var handleKeyPress = function handleKeyPress(key) {
+    var octave = startingOctave > 0 ? startingOctave : 1;
+    determinePressedNote(key, octave);
+    pressedKey && pressedKey(key);
+  };
+
+  // Assumption: the xylophone always starts at C
+  var determinePressedNote = function determinePressedNote(key, octave) {
+    var notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+    var numberOfNotes = notes.length;
+    if (key <= numberOfNotes) {
+      (0, _Sound["default"])(notes[key - 1], octave);
+    } else {
+      determinePressedNote(key - numberOfNotes, octave + 1);
+    }
+  };
+  var keys = [];
+  var _loop = function _loop(key) {
+    if (!colors && key >= MAX_KEYS) {
+      return 1; // break
+    }
+    keys.push( /*#__PURE__*/_react["default"].createElement("div", {
+      className: "Key",
+      style: !width ? {
+        flexGrow: 1
+      } : undefined,
+      onMouseDown: function onMouseDown() {
+        return handleKeyPress(key);
+      },
+      key: i
+    }, /*#__PURE__*/_react["default"].createElement(_Key["default"], {
+      identifier: key,
+      colors: colors,
+      shape: shape,
+      height: height,
+      width: width,
+      numberOfKeys: keyCount
+    })));
+  };
+  for (var key = 1; key < keyCount + 1; key++) {
+    if (_loop(key)) break;
+  }
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    className: "KeysContainer"
+  }, keys);
+}
