@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Xylophone-react/static/css/main.ac5f7593.css",
+    "main.js": "/Xylophone-react/static/js/main.a066106a.js",
+    "index.html": "/Xylophone-react/index.html",
+    "main.ac5f7593.css.map": "/Xylophone-react/static/css/main.ac5f7593.css.map",
+    "main.a066106a.js.map": "/Xylophone-react/static/js/main.a066106a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ac5f7593.css",
+    "static/js/main.a066106a.js"
+  ]
+}
