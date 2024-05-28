@@ -8,7 +8,7 @@ var _react = _interopRequireDefault(require("react"));
 var _Key = _interopRequireDefault(require("../Key/Key"));
 var _Sound = _interopRequireDefault(require("../Sound/Sound"));
 require("./Xylophone.scss");
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { "default": e }; }
 var MAX_KEYS = 13;
 function Xylophone(_ref) {
   var _ref$keyCount = _ref.keyCount,
