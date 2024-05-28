@@ -31,16 +31,15 @@ return <Xylophone />;
  `startingOctave`  |  2  | 1 - ∞ | number | The starting octave of the first key |
   `pressedKey`  |  None  | None | (number) => void | Returns which key was pressed most recently |
 
+<br>
 
-### Props in detail
+**numberOfKeys**
 
-**numberOfKeys:**
+- 12 colors have been set by default. In order to increase the `numberOfKeys` over 12, you need to create your own custom color scheme.
 
-12 colors have been set by default. In order to increase the `numberOfKeys` over 12, you need to create your own custom color scheme.
+**colors**
 
-**colors:**
-
-`colors` will use the last element to paint all remaining keys. For example,
+- `colors` will use the last element to paint all *remaining* keys. For example, the following will paint the first key pink, and all remaining keys teal:
 
 ```js
 colors={[
@@ -55,41 +54,35 @@ colors={[
 ]}
 ```
 
-only the first key will be pink, and the remaining will be teal.
-
-This allows you to avoid duplication for colors that are the same for each key.
-
 **pressedKey**:
 
-`pressedKey` allows you to pass in a function which can be used to determine which key was pressed most recently.
+- `pressedKey` allows you to pass in a function which can be used to determine which key was pressed most recently:
 
 ```js
-constructor(props) {
-  super(props);
-  this.state = { pressedKey: 0 };
-  this.setPressedKey = this.setPressedKey.bind(this);
+const handleKeyPress = (number) => {
+  ...
 }
 
 ...
 
 <Xylophone
-  pressedKey={this.setPressedKey}
+  pressedKey={handleKeyPress}
 />
-
-...
-
-setPressedKey(key) {
-  this.setState({pressedKey: key})
-}
 ```
 
 ## Develop
 
-All changes should be made within the `./components` folder.
+Changes should *only* be made within the `./components` folder. The ES5 folder is the *compiled* equivalent. ES5 compiles Sass to CSS:
 
-After making changes, run `yarn build`. This command will compile the files to ES5, convert Sass to CSS, and update any Sass imports.
+```
+yarn build
+```
 
-To test that your changes worked, install this project into a React app using `npm install path/to/this/folder` and render the `<Xylophone />` component.
+Install package locally via:
+
+```
+npm install path/to/this/folder
+```
 
 ## Feedback
 
