@@ -1,71 +1,64 @@
-import * as React from 'react';
+import React from 'react';
 
-import Key from '../Key';
+import Key from '../Key/Key';
 import playSound from '../Sound/Sound';
 
 import './Xylophone.scss';
 
-export default class Xylophone extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const MAX_KEYS = 13;
 
-  render() {
-    return <div className='KeysContainer'>{this.renderKeys()}</div>;
-  }
-
-  renderKeys() {
-    const { numberOfKeys = 8, colors, shape, height, width } = this.props;
-
-    const growKeys = width ? undefined : { flexGrow: 1 };
-
-    const keys = [];
-    for (let i = 1; i < numberOfKeys + 1; i++) {
-      const preventExtraKeys = i >= 13;
-      if (!colors && preventExtraKeys) {
-        break;
-      }
-
-      keys.push(
-        <div
-          className='Key'
-          style={growKeys}
-          onMouseDown={this.pressedKey.bind(this, i)}
-          key={`Key-${i}`}
-        >
-          <Key
-            identifier={i}
-            colors={colors}
-            shape={shape}
-            height={height}
-            width={width}
-            numberOfKeys={numberOfKeys}
-          />
-        </div>
-      );
-    }
-
-    return keys;
-  }
-
-  pressedKey(key) {
-    const { pressedKey, startingOctave = 2 } = this.props;
-
+export default function Xylophone({
+  keyCount = 8,
+  startingOctave = 2,
+  colors,
+  shape,
+  height,
+  width,
+  pressedKey,
+}) {
+  const handleKeyPress = (key) => {
     const octave = startingOctave > 0 ? startingOctave : 1;
 
-    this.determinePressedNote(key, octave);
+    determinePressedNote(key, octave);
     pressedKey && pressedKey(key);
-  }
+  };
 
   // Assumption: the xylophone always starts at C
-  determinePressedNote(pressedKey, octave) {
+  const determinePressedNote = (key, octave) => {
     const notes = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
     const numberOfNotes = notes.length;
 
-    if (pressedKey <= numberOfNotes) {
-      playSound(notes[pressedKey - 1], octave);
+    if (key <= numberOfNotes) {
+      playSound(notes[key - 1], octave);
     } else {
-      this.determinePressedNote(pressedKey - numberOfNotes, octave + 1);
+      determinePressedNote(key - numberOfNotes, octave + 1);
     }
+  };
+
+  const keys = [];
+  for (let key = 1; key < keyCount + 1; key++) {
+    if (!colors && key >= MAX_KEYS) {
+      break;
+    }
+
+    keys.push(
+      <div
+        className="Key"
+        style={!width ? {flexGrow: 1} : undefined}
+        onMouseDown={() => handleKeyPress(key)}
+        key={i}
+      >
+        <Key
+          identifier={key}
+          colors={colors}
+          shape={shape}
+          height={height}
+          width={width}
+          numberOfKeys={keyCount}
+        />
+      </div>
+    );
   }
+
+  return <div className="KeysContainer">{keys}</div>;
 }

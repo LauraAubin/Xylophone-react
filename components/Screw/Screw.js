@@ -1,9 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 
 import './Screw.scss';
 
-export default class Screw extends React.Component {
-  render() {
-    return <div className='Screw' />;
-  }
+export default function Screw() {
+  return <div className="Screw" />;
 }
