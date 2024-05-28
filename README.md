@@ -3,6 +3,10 @@
 
 <img src="https://github.com/LauraAubin/Xylophone-react/raw/master/Screenshot/Xylophone%20-%2012%20keys.png" />
 
+## Play!
+
+🎶 https://lauraaubin.github.io/Xylophone-react/ 🎶 
+
 ## Install
 
 Your app must be using React and ReactDom.
@@ -75,7 +79,7 @@ const handleKeyPress = (number) => {
 Changes should *only* be made within the `./components` folder. The ES5 folder is the *compiled* equivalent. ES5 compiles Sass to CSS:
 
 ```
-yarn build
+yarn compile-files
 ```
 
 Install package locally via:
