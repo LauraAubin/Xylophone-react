@@ -2,15 +2,13 @@
   "name": "xylophone-react",
   "version": "2.0.0",
   "description": "A React based xylophone ready to use out of the box",
-  "homepage": "https://lauraaubin.github.io/Xylophone-react",
+  "homepage": "https://github.com/LauraAubin/Xylophone-react",
   "main": "ES5/Xylophone/index.js",
   "scripts": {
     "compile-to-ES5": "./node_modules/.bin/babel src --out-dir ES5",
     "convert-sass-to-css": "node-sass src -o ES5",
     "replace-sass-mentions-with-css": "replace scss css --include='ES5/*/*.js'",
-    "compile-files": "npm-run-all compile-to-ES5 convert-sass-to-css replace-sass-mentions-with-css",
-    "build": "react-scripts build",
-    "deploy": "gh-pages -d build"
+    "compile-files": "npm-run-all compile-to-ES5 convert-sass-to-css replace-sass-mentions-with-css"
   },
   "repository": {
     "type": "git",
@@ -38,9 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "replace": "^1.1.0",
-    "npm-run-all": "^4.1.5",
-    "gh-pages": "^4.0.0",
-    "react-scripts": "^5.0.1"
+    "npm-run-all": "^4.1.5"
   },
   "browserslist": {
     "production": [
