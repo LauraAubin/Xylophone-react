@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Screw;
 var _react = _interopRequireDefault(require("react"));
-require("./Screw.scss");
+require("./Screw.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function Screw() {
   return /*#__PURE__*/_react.default.createElement("div", {

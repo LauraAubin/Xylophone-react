@@ -7,7 +7,7 @@ exports.default = Xylophone;
 var _react = _interopRequireDefault(require("react"));
 var _Key = _interopRequireDefault(require("../Key/Key"));
 var _Sound = _interopRequireDefault(require("../Sound/Sound"));
-require("./Xylophone.scss");
+require("./Xylophone.css");
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 const MAX_KEYS = 13;
 function Xylophone(_ref) {
