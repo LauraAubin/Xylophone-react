@@ -27,8 +27,8 @@ return <Xylophone />;
 
 | Prop        | Default   | Values |  Type  | Description |
 | ------------ |:---------:| -----:| -----:|  -----:|
-| `numberOfKeys`  |    8   | 1 - ∞ | number | The number of keys |
-| `colors`  |    8   | No limits | {color?: string, colorPressed?: string, background?: string}[] | The color scheme of all keys |
+| `keyCount`  |    12   | 1 - ∞ | number | The number of keys |
+| `colors`  |    [Default color map](https://github.com/LauraAubin/Xylophone-react/blob/master/src/Xylophone/Xylophone.js#L64-L125)   | No limits | {color?: string, colorPressed?: string, background?: string}[] | The color scheme of all keys |
 | `shape`  |   shrinking    | `shrinking`, `growing`, `flat` | string | The shape of the whole xylophone |
 | `height`  |   200    | 1 - ∞ | number | The height of the smallest key (px) |
 | `width`  |   Stretch to fit container   | 1 - ∞ | number | The width of all keys (px) |
@@ -43,6 +43,7 @@ return <Xylophone />;
 
 **colors**
 
+- Pass in a custom color in the form of a hex code or named value.
 - `colors` will use the last element to paint all *remaining* keys. For example, the following will paint the first key pink, and all remaining keys teal:
 
 ```js
