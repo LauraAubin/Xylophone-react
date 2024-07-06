@@ -1,6 +1,6 @@
 {
   "name": "xylophone-react",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React based xylophone ready to use out of the box",
   "homepage": "https://github.com/LauraAubin/Xylophone-react",
   "main": "ES5/Xylophone/index.js",

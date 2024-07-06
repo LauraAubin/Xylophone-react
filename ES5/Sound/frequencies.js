@@ -3,8 +3,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-var scale = {
+exports.default = void 0;
+const scale = {
   "C": 130.75,
   "D": 146.75,
   "E": 164.75,
@@ -13,4 +13,4 @@ var scale = {
   "A": 220,
   "B": 247
 };
-var _default = exports["default"] = scale;
+var _default = exports.default = scale;
