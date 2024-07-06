@@ -47,7 +47,7 @@ function Xylophone(_ref) {
         flexGrow: 1
       } : undefined,
       onMouseDown: () => handleKeyPress(key),
-      key: i
+      key: key
     }, /*#__PURE__*/_react.default.createElement(_Key.default, {
       identifier: key,
       colors: colors,

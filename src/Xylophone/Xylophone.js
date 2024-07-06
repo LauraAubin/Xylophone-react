@@ -46,7 +46,7 @@ export default function Xylophone({
         className="Key"
         style={!width ? {flexGrow: 1} : undefined}
         onMouseDown={() => handleKeyPress(key)}
-        key={i}
+        key={key}
       >
         <Key
           identifier={key}
