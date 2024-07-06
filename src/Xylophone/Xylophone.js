@@ -8,11 +8,11 @@ import './Xylophone.scss';
 const MAX_KEYS = 13;
 
 export default function Xylophone({
-  keyCount = 8,
+  keyCount = 12,
   startingOctave = 2,
-  colors,
-  shape,
-  height,
+  colors = DEFAULT_COLORS,
+  shape = 'shrinking',
+  height = 200,
   width,
   pressedKey,
 }) {
@@ -37,7 +37,7 @@ export default function Xylophone({
 
   const keys = [];
   for (let key = 1; key < keyCount + 1; key++) {
-    if (!colors && key >= MAX_KEYS) {
+    if (!colors || key >= MAX_KEYS) {
       break;
     }
 
@@ -62,3 +62,66 @@ export default function Xylophone({
 
   return <div className="KeysContainer">{keys}</div>;
 }
+
+const DEFAULT_COLORS = [
+  {
+    color: "purple-purple",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "lavender-lavender",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "blue-blue",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "sky-sky",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "teal-teal",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "green-green",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "slime-slime",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "yellow-yellow",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "mustard-mustard",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "orange-orange",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "pink-pink",
+    colorPressed: "dark",
+    background: "darker",
+  },
+  {
+    color: "red-red",
+    colorPressed: "dark",
+    background: "darker",
+  }
+]

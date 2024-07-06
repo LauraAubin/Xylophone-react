@@ -12,11 +12,11 @@ function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e
 const MAX_KEYS = 13;
 function Xylophone(_ref) {
   let {
-    keyCount = 8,
+    keyCount = 12,
     startingOctave = 2,
-    colors,
-    shape,
-    height,
+    colors = DEFAULT_COLORS,
+    shape = 'shrinking',
+    height = 200,
     width,
     pressedKey
   } = _ref;
@@ -38,7 +38,7 @@ function Xylophone(_ref) {
   };
   const keys = [];
   for (let key = 1; key < keyCount + 1; key++) {
-    if (!colors && key >= MAX_KEYS) {
+    if (!colors || key >= MAX_KEYS) {
       break;
     }
     keys.push( /*#__PURE__*/_react.default.createElement("div", {
@@ -61,3 +61,52 @@ function Xylophone(_ref) {
     className: "KeysContainer"
   }, keys);
 }
+const DEFAULT_COLORS = [{
+  color: "purple-purple",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "lavender-lavender",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "blue-blue",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "sky-sky",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "teal-teal",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "green-green",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "slime-slime",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "yellow-yellow",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "mustard-mustard",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "orange-orange",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "pink-pink",
+  colorPressed: "dark",
+  background: "darker"
+}, {
+  color: "red-red",
+  colorPressed: "dark",
+  background: "darker"
+}];

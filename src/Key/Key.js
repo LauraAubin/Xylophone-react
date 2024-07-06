@@ -4,15 +4,14 @@ import Screw from '../Screw/Screw';
 
 import './Key.scss';
 
-const DEFAULT_HEIGHT = 200;
 const MODIFIER = 10;
 
 export default function Key({
   identifier = 1,
-  shape = 'shrinking',
+  shape,
   numberOfKeys,
   colors,
-  height = DEFAULT_HEIGHT,
+  height,
   width,
 }) {
   const [isPressed, setPressed] = useState(false);
