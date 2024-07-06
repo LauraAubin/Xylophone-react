@@ -5,8 +5,6 @@ import playSound from '../Sound/Sound';
 
 import './Xylophone.scss';
 
-const MAX_KEYS = 13;
-
 export default function Xylophone({
   keyCount = 12,
   startingOctave = 2,
@@ -37,7 +35,7 @@ export default function Xylophone({
 
   const keys = [];
   for (let key = 1; key < keyCount + 1; key++) {
-    if (!colors || key >= MAX_KEYS) {
+    if (!colors) {
       break;
     }
 
